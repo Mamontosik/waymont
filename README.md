@@ -9,11 +9,8 @@
 
 ## Использование
 
-Откройте сайт в браузере и следуйте инструкции.
-
-```
-https://mamontosik.github.io/waymont/
-```
+Откройте сайт в браузере и следуйте инструкции:  
+[https://mamontosik.github.io/waymont/](https://mamontosik.github.io/waymont/)
 
 ## Стек
 
