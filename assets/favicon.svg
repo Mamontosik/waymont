@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect width="64" height="64" rx="14" fill="#1e293b"/>
+  <polygon points="10,50 32,14 54,50" fill="#2563eb" opacity="0.25"/>
+  <polygon points="18,50 32,28 46,50" fill="#d97706" opacity="0.35"/>
+  <text x="32" y="43" font-family="system-ui" font-size="32" font-weight="700" fill="white" text-anchor="middle">W</text>
+</svg>

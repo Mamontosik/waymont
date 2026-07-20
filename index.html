@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WayMont — быстрый и безопасный VPN</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="alternate icon" href="assets/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "WayMont",
+    "applicationCategory": "SecurityApplication",
+    "operatingSystem": "iOS, Android, macOS, Windows, Linux, tvOS",
+    "description": "Быстрый и безопасный VPN-сервис на базе 3X-UI и Xray"
+  }
+  </script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<noscript>
+  <div style="padding:20px;text-align:center;background:#fef3c7;border-bottom:2px solid #d97706;font-family:system-ui,sans-serif;font-size:0.9rem;color:#92400e;">
+    Для полной функциональности включите JavaScript.
+  </div>
+</noscript>
+
+<header class="header">
+  <div class="container header__inner">
+    <a href="#hero" class="logo">
+      <svg class="logo__icon" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#1e293b"/>
+        <polygon points="10,50 32,14 54,50" fill="#2563eb" opacity="0.3"/>
+        <polygon points="18,50 32,28 46,50" fill="#d97706" opacity="0.4"/>
+        <text x="32" y="43" font-family="system-ui" font-size="32" font-weight="700" fill="white" text-anchor="middle">W</text>
+      </svg>
+      <span class="logo__text">WayMont</span>
+    </a>
+    <nav class="nav" id="nav-menu" aria-label="Навигация">
+      <a href="#features" class="nav__link">Преимущества</a>
+      <a href="#download" class="nav__link">Скачать</a>
+      <a href="#instructions" class="nav__link">Инструкция</a>
+    </nav>
+    <button class="mobile-toggle" aria-label="Открыть меню" aria-controls="nav-menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+  <section id="hero" class="hero">
+    <div class="container hero__inner">
+      <div class="hero__content">
+        <h1 class="hero__title">Быстрый и безопасный<br><span class="accent">доступ в интернет</span></h1>
+        <p class="hero__subtitle">
+          WayMont — надёжный VPN-сервис на базе 3X-UI и Xray.
+          Верните свободный доступ к любому контенту.
+        </p>
+        <a href="#instructions" class="btn btn--primary">Как подключиться</a>
+      </div>
+      <div class="hero__visual">
+        <svg class="hero__abstract" viewBox="0 0 320 280" fill="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#fbbf24" stop-opacity="0.15"/>
+              <stop offset="60%" stop-color="#2563eb" stop-opacity="0.08"/>
+              <stop offset="100%" stop-color="#1e293b" stop-opacity="0.03"/>
+            </linearGradient>
+          </defs>
+          <rect width="320" height="280" fill="url(#sky)"/>
+          <polygon points="40,220 100,100 160,220" fill="#2563eb" opacity="0.12"/>
+          <polygon points="100,220 160,80 220,220" fill="#1e293b" opacity="0.10"/>
+          <polygon points="160,220 220,110 280,220" fill="#d97706" opacity="0.10"/>
+          <path d="M20 240 Q80 220 120 230 Q160 240 200 225 Q240 210 300 230" stroke="#2563eb" stroke-width="1.5" fill="none" opacity="0.15"/>
+          <path d="M120 230 Q140 200 160 180 Q180 200 200 225" stroke="#d97706" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.25" stroke-dasharray="4 3"/>
+          <circle cx="160" cy="100" r="3" fill="#d97706" opacity="0.6"/>
+          <circle cx="200" cy="150" r="2" fill="#d97706" opacity="0.4"/>
+          <circle cx="120" cy="160" r="2" fill="#d97706" opacity="0.4"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section id="features" class="features section">
+    <div class="container">
+      <h2 class="section__title">Почему WayMont?</h2>
+      <div class="features__grid">
+        <article class="feature-card reveal">
+          <div class="feature-card__icon">
+            <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+              <path d="M24 6L8 14v8c0 12 6 20 16 24 10-4 16-12 16-24v-8L24 6z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" fill="none"/>
+              <polyline points="18,24 22,28 30,22" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 class="feature-card__title">Безопасность</h3>
+          <p class="feature-card__text">Собственный сервер — ваши данные не хранятся на чужих серверах. Полный контроль и конфиденциальность.</p>
+        </article>
+        <article class="feature-card reveal">
+          <div class="feature-card__icon">
+            <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+              <polygon points="26,6 14,26 22,26 20,42 36,22 28,22" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" fill="none"/>
+            </svg>
+          </div>
+          <h3 class="feature-card__title">Простота</h3>
+          <p class="feature-card__text">Настройка за минуту: скопировал ссылку подписки, вставил в приложение — готово. Без лишних телодвижений.</p>
+        </article>
+        <article class="feature-card reveal">
+          <div class="feature-card__icon">
+            <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+              <path d="M12 36V18a6 6 0 016-6h12a6 6 0 016 6v12a6 6 0 01-6 6H18l-6 6z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" fill="none"/>
+              <path d="M20 24h8M24 20v8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="feature-card__title">Поддержка</h3>
+          <p class="feature-card__text">Прямая поддержка от разработчиков. Поможем с настройкой и ответим на любые вопросы.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="download" class="download section">
+    <div class="container">
+      <h2 class="section__title">Скачать приложение Happ</h2>
+      <p class="section__subtitle">Доступно на всех платформах</p>
+      <div class="download__grid">
+        <div class="download__card">
+          <div class="download__icon">
+            <img src="assets/icons/platform-apple.png" alt="" width="44" height="44">
+          </div>
+          <h3>iOS</h3>
+          <ul>
+            <li><a href="https://apps.apple.com/us/app/happ-proxy-utility/id6504287215" target="_blank" rel="noopener">App Store (Global)</a></li>
+            <li><a href="https://apps.apple.com/ru/app/happ-proxy-utility/id6783623643" target="_blank" rel="noopener">App Store (РФ)</a></li>
+          </ul>
+        </div>
+        <div class="download__card">
+          <div class="download__icon">
+            <img src="assets/icons/platform-google.png" alt="" width="44" height="44">
+          </div>
+          <h3>Android</h3>
+          <ul>
+            <li><a href="https://play.google.com/store/apps/details?id=com.happproxy" target="_blank" rel="noopener">Google Play</a></li>
+          </ul>
+        </div>
+        <div class="download__card">
+          <div class="download__icon">
+            <img src="assets/icons/platform-windows.png" alt="" width="44" height="44">
+          </div>
+          <h3>Desktop</h3>
+          <ul>
+            <li><a href="https://github.com/Happ-proxy/happ-desktop/releases/latest/download/setup-Happ.x64.exe" target="_blank" rel="noopener">Windows</a></li>
+            <li><a href="https://github.com/Happ-proxy/happ-desktop/releases/latest/download/Happ.macOS.universal.dmg" target="_blank" rel="noopener">macOS</a></li>
+            <li><a href="https://github.com/Happ-proxy/happ-desktop/releases/latest" target="_blank" rel="noopener">Linux</a></li>
+          </ul>
+        </div>
+        <div class="download__card">
+          <div class="download__icon">
+            <img src="assets/icons/platform-tv.png" alt="" width="44" height="44">
+          </div>
+          <h3>TV</h3>
+          <ul>
+            <li><a href="https://apps.apple.com/us/app/happ-proxy-utility-for-tv/id6748297274" target="_blank" rel="noopener">Apple TV</a></li>
+            <li><a href="https://play.google.com/store/apps/details?id=com.happproxy" target="_blank" rel="noopener">Android TV</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="download__notice">
+        <p>Если приложение не скачивается из магазина, попробуйте сменить регион App Store (РФ, США или другой) или установите через Google Play на Android.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="instructions" class="instructions section">
+    <div class="container">
+      <h2 class="section__title">Инструкция по подключению</h2>
+      <p class="section__subtitle">Приложение Happ доступно для iOS и Android</p>
+      <div class="steps">
+        <article class="step reveal">
+          <div class="step__number">1</div>
+          <div class="step__body">
+            <img src="assets/icons/step1.png" alt="" class="step__icon" width="80" height="80">
+            <div class="step__text">
+              <h3 class="step__title">Установите приложение</h3>
+              <div class="step__desc">
+                <p>Установите <strong>Happ — Proxy Utility</strong> на ваше устройство. Ссылки на скачивание — в блоке выше.</p>
+                <ul class="step__list">
+                  <li><strong>iOS:</strong> Если приложение не находится, смените регион App Store на РФ или США.</li>
+                  <li><strong>Android:</strong> Google Play — <strong>Happ — Proxy Utility</strong>.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="step__screenshot">
+            <picture>
+              <source srcset="assets/screenshots/step1.webp" type="image/webp">
+              <img src="assets/screenshots/step1.png" alt="Главный экран приложения Happ с кнопкой подключения" class="screenshot__img js-lightbox-trigger" loading="lazy" width="315" height="640">
+            </picture>
+          </div>
+        </article>
+        <article class="step reveal">
+          <div class="step__number">2</div>
+          <div class="step__body">
+            <img src="assets/icons/step2.png" alt="" class="step__icon" width="80" height="80">
+            <div class="step__text">
+              <h3 class="step__title">Получите ключ подписки</h3>
+              <div class="step__desc">
+                <p>Свяжитесь с администратором WayMont — вам выдадут ссылку подписки (или QR-код).</p>
+                <ul class="step__list">
+                  <li>Скопируйте ссылку в буфер обмена — она понадобится на следующем шаге</li>
+                  <li>Либо сохраните QR-код для сканирования</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="step__screenshot">
+            <picture>
+              <source srcset="assets/screenshots/step2.webp" type="image/webp">
+              <img src="assets/screenshots/step2.png" alt="Экран настроек профиля с полем для ввода ключа подписки" class="screenshot__img js-lightbox-trigger" loading="lazy" width="315" height="640">
+            </picture>
+          </div>
+        </article>
+        <article class="step reveal">
+          <div class="step__number">3</div>
+          <div class="step__body">
+            <img src="assets/icons/step3.png" alt="" class="step__icon" width="80" height="80">
+            <div class="step__text">
+              <h3 class="step__title">Добавьте подписку в Happ</h3>
+              <div class="step__desc">
+                <ul class="step__list">
+                  <li>На главном экране Happ нажмите кнопку <strong>«+»</strong></li>
+                  <li>Выберите способ добавления:
+                    <br><strong>«Импорт из буфера обмена»</strong> — ссылка определится автоматически
+                    <br><strong>«URL подписки»</strong> — вставьте ссылку вручную → «Готово»
+                    <br><strong>QR-код</strong> — отсканируйте камерой телефона
+                  </li>
+                  <li>Подписка появится в списке серверов</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="step__screenshot">
+            <picture>
+              <source srcset="assets/screenshots/step3.webp" type="image/webp">
+              <img src="assets/screenshots/step3.png" alt="Меню добавления подписки в приложении Happ" class="screenshot__img js-lightbox-trigger" loading="lazy" width="315" height="640">
+            </picture>
+          </div>
+        </article>
+        <article class="step reveal">
+          <div class="step__number">4</div>
+          <div class="step__body">
+            <img src="assets/icons/step4.png" alt="" class="step__icon" width="80" height="80">
+            <div class="step__text">
+              <h3 class="step__title">Подключитесь</h3>
+              <div class="step__desc">
+                <ul class="step__list">
+                  <li>Выберите добавленный профиль</li>
+                  <li>Нажмите <strong>«Подключиться»</strong></li>
+                  <li>Статус «Подключено» — вы в безопасном интернете</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="step__screenshot">
+            <picture>
+              <source srcset="assets/screenshots/step4.webp" type="image/webp">
+              <img src="assets/screenshots/step4.png" alt="Экран успешного подключения к VPN со статусом Подключено" class="screenshot__img js-lightbox-trigger" loading="lazy" width="315" height="640">
+            </picture>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__brand">
+      <span class="logo__text">WayMont</span>
+      <p class="footer__copy">&copy; 2026 WayMont. Все права защищены.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
