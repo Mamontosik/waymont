@@ -7,7 +7,7 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="alternate icon" href="assets/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self'; script-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -32,10 +32,8 @@
   <div class="container header__inner">
     <a href="#hero" class="logo">
       <svg class="logo__icon" viewBox="0 0 64 64" fill="none" aria-hidden="true">
-        <rect width="64" height="64" rx="14" fill="#1e293b"/>
-        <polygon points="10,50 32,14 54,50" fill="#2563eb" opacity="0.3"/>
-        <polygon points="18,50 32,28 46,50" fill="#d97706" opacity="0.4"/>
-        <text x="32" y="43" font-family="system-ui" font-size="32" font-weight="700" fill="white" text-anchor="middle">W</text>
+        <rect width="64" height="64" rx="6" fill="#db0000"/>
+        <text x="32" y="44" font-family="Oswald, system-ui" font-size="34" font-weight="700" fill="white" text-anchor="middle">W</text>
       </svg>
       <span class="logo__text">WayMont</span>
     </a>
@@ -52,6 +50,7 @@
 
 <main>
   <section id="hero" class="hero">
+    <div class="hero__wordmark" aria-hidden="true">WayMont</div>
     <div class="container hero__inner">
       <div class="hero__content">
         <h1 class="hero__title">Быстрый и безопасный<br><span class="accent">доступ в интернет</span></h1>
@@ -59,33 +58,34 @@
           WayMont — надёжный VPN-сервис на базе 3X-UI и Xray.
           Верните свободный доступ к любому контенту.
         </p>
-        <a href="#instructions" class="btn btn--primary">Как подключиться</a>
+        <a href="#instructions" class="btn btn--mega">Как подключиться <span class="btn__arrow" aria-hidden="true">→</span></a>
       </div>
       <div class="hero__visual">
         <svg class="hero__abstract" viewBox="0 0 320 280" fill="none" aria-hidden="true">
           <defs>
             <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#fbbf24" stop-opacity="0.15"/>
-              <stop offset="60%" stop-color="#2563eb" stop-opacity="0.08"/>
-              <stop offset="100%" stop-color="#1e293b" stop-opacity="0.03"/>
+              <stop offset="0%" stop-color="#db0000" stop-opacity="0.08"/>
+              <stop offset="60%" stop-color="#161818" stop-opacity="0.05"/>
+              <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
             </linearGradient>
           </defs>
           <rect width="320" height="280" fill="url(#sky)"/>
-          <polygon points="40,220 100,100 160,220" fill="#2563eb" opacity="0.12"/>
-          <polygon points="100,220 160,80 220,220" fill="#1e293b" opacity="0.10"/>
-          <polygon points="160,220 220,110 280,220" fill="#d97706" opacity="0.10"/>
-          <path d="M20 240 Q80 220 120 230 Q160 240 200 225 Q240 210 300 230" stroke="#2563eb" stroke-width="1.5" fill="none" opacity="0.15"/>
-          <path d="M120 230 Q140 200 160 180 Q180 200 200 225" stroke="#d97706" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.25" stroke-dasharray="4 3"/>
-          <circle cx="160" cy="100" r="3" fill="#d97706" opacity="0.6"/>
-          <circle cx="200" cy="150" r="2" fill="#d97706" opacity="0.4"/>
-          <circle cx="120" cy="160" r="2" fill="#d97706" opacity="0.4"/>
+          <polygon points="40,220 100,100 160,220" fill="#db0000" opacity="0.12"/>
+          <polygon points="100,220 160,80 220,220" fill="#161818" opacity="0.10"/>
+          <polygon points="160,220 220,110 280,220" fill="#bbbfbf" opacity="0.10"/>
+          <path d="M20 240 Q80 220 120 230 Q160 240 200 225 Q240 210 300 230" stroke="#db0000" stroke-width="1.5" fill="none" opacity="0.15"/>
+          <path d="M120 230 Q140 200 160 180 Q180 200 200 225" stroke="#161818" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.25" stroke-dasharray="4 3"/>
+          <circle cx="160" cy="100" r="3" fill="#db0000" opacity="0.6"/>
+          <circle cx="200" cy="150" r="2" fill="#db0000" opacity="0.4"/>
+          <circle cx="120" cy="160" r="2" fill="#db0000" opacity="0.4"/>
         </svg>
       </div>
     </div>
   </section>
 
-  <section id="features" class="features section">
+  <section id="features" class="features section section--dark">
     <div class="container">
+      <span class="section__num" aria-hidden="true">§01</span>
       <h2 class="section__title">Почему WayMont?</h2>
       <div class="features__grid">
         <article class="feature-card reveal">
@@ -123,6 +123,7 @@
 
   <section id="download" class="download section">
     <div class="container">
+      <span class="section__num" aria-hidden="true">§02</span>
       <h2 class="section__title">Скачать приложение Happ</h2>
       <p class="section__subtitle">Доступно на всех платформах</p>
       <div class="download__grid">
@@ -173,14 +174,16 @@
     </div>
   </section>
 
-  <section id="instructions" class="instructions section">
+  <section id="instructions" class="instructions section section--dark">
     <div class="container">
+      <span class="section__num" aria-hidden="true">§03</span>
       <h2 class="section__title">Инструкция по подключению</h2>
       <p class="section__subtitle">Приложение Happ доступно для iOS и Android</p>
-      <div class="steps">
+      <div class="steps timeline">
         <article class="step reveal">
-          <div class="step__number">1</div>
-          <div class="step__body">
+          <div class="step__marker" aria-hidden="true">1</div>
+          <div class="step__card">
+            <div class="step__body">
             <img src="assets/icons/step1.png" alt="" class="step__icon" width="80" height="80">
             <div class="step__text">
               <h3 class="step__title">Установите приложение</h3>
@@ -198,11 +201,13 @@
               <source srcset="assets/screenshots/step1.webp" type="image/webp">
               <img src="assets/screenshots/step1.png" alt="Главный экран приложения Happ с кнопкой подключения" class="screenshot__img js-lightbox-trigger" loading="lazy" width="315" height="640">
             </picture>
+            </div>
           </div>
         </article>
         <article class="step reveal">
-          <div class="step__number">2</div>
-          <div class="step__body">
+          <div class="step__marker" aria-hidden="true">2</div>
+          <div class="step__card">
+            <div class="step__body">
             <img src="assets/icons/step2.png" alt="" class="step__icon" width="80" height="80">
             <div class="step__text">
               <h3 class="step__title">Получите ключ подписки</h3>
@@ -220,11 +225,13 @@
               <source srcset="assets/screenshots/step2.webp" type="image/webp">
               <img src="assets/screenshots/step2.png" alt="Экран настроек профиля с полем для ввода ключа подписки" class="screenshot__img js-lightbox-trigger" loading="lazy" width="315" height="640">
             </picture>
+            </div>
           </div>
         </article>
         <article class="step reveal">
-          <div class="step__number">3</div>
-          <div class="step__body">
+          <div class="step__marker" aria-hidden="true">3</div>
+          <div class="step__card">
+            <div class="step__body">
             <img src="assets/icons/step3.png" alt="" class="step__icon" width="80" height="80">
             <div class="step__text">
               <h3 class="step__title">Добавьте подписку в Happ</h3>
@@ -246,11 +253,13 @@
               <source srcset="assets/screenshots/step3.webp" type="image/webp">
               <img src="assets/screenshots/step3.png" alt="Меню добавления подписки в приложении Happ" class="screenshot__img js-lightbox-trigger" loading="lazy" width="315" height="640">
             </picture>
+            </div>
           </div>
         </article>
         <article class="step reveal">
-          <div class="step__number">4</div>
-          <div class="step__body">
+          <div class="step__marker" aria-hidden="true">4</div>
+          <div class="step__card">
+            <div class="step__body">
             <img src="assets/icons/step4.png" alt="" class="step__icon" width="80" height="80">
             <div class="step__text">
               <h3 class="step__title">Подключитесь</h3>
@@ -268,6 +277,7 @@
               <source srcset="assets/screenshots/step4.webp" type="image/webp">
               <img src="assets/screenshots/step4.png" alt="Экран успешного подключения к VPN со статусом Подключено" class="screenshot__img js-lightbox-trigger" loading="lazy" width="315" height="640">
             </picture>
+            </div>
           </div>
         </article>
       </div>
