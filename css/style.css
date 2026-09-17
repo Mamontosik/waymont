@@ -53,7 +53,16 @@ body {
 
 a { color: inherit; text-decoration: none; }
 img { display: block; max-width: 100%; }
-code { font-family: 'SF Mono', 'Fira Code', monospace; }
+
+.noscript-banner {
+  padding: 20px;
+  text-align: center;
+  background: #fef3c7;
+  border-bottom: 2px solid #d97706;
+  font-family: system-ui, sans-serif;
+  font-size: 0.9rem;
+  color: #92400e;
+}
 
 .container {
   width: 100%;
@@ -347,13 +356,22 @@ code { font-family: 'SF Mono', 'Fira Code', monospace; }
   gap: 6px;
 }
 .download__card a {
+  position: relative;
   font-size: 0.85rem;
   color: var(--color-red);
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  text-decoration: none;
   transition: color var(--transition);
 }
-.download__card a:hover { color: var(--color-red-dark); }
+.download__card a::after {
+  content: '→';
+  display: inline-block;
+  margin-left: 4px;
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity var(--transition), transform var(--transition);
+}
+.download__card a:hover { color: var(--color-ink); }
+.download__card a:hover::after { opacity: 1; transform: translateX(0); }
 .download__notice {
   background: var(--color-paper);
   border: 1px solid var(--border-light);
@@ -450,10 +468,6 @@ code { font-family: 'SF Mono', 'Fira Code', monospace; }
   line-height: 1.5;
   color: var(--color-gray);
 }
-.link-ghost {
-  color: var(--color-red);
-  text-decoration: underline;
-}
 
 /* Step screenshot */
 .step__screenshot {
@@ -485,13 +499,16 @@ code { font-family: 'SF Mono', 'Fira Code', monospace; }
   justify-content: center;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  pointer-events: none;
+  transition: opacity 0.3s ease, visibility 0s linear 0.3s;
   cursor: zoom-out;
   padding: 24px;
 }
 .lightbox--open {
   opacity: 1;
   visibility: visible;
+  pointer-events: auto;
+  transition: opacity 0.3s ease, visibility 0s;
 }
 .lightbox__img {
   max-width: min(95vw, 500px);
@@ -550,6 +567,10 @@ code { font-family: 'SF Mono', 'Fira Code', monospace; }
 }
 
 /* Reveal animation */
+.no-js .reveal {
+  opacity: 1;
+  transform: none;
+}
 .reveal {
   opacity: 0;
   transform: translateY(24px);

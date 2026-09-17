@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" class="no-js">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +7,7 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="alternate icon" href="assets/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self'; script-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; font-src 'self'; script-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -23,9 +23,7 @@
 <body>
 
 <noscript>
-  <div style="padding:20px;text-align:center;background:#fef3c7;border-bottom:2px solid #d97706;font-family:system-ui,sans-serif;font-size:0.9rem;color:#92400e;">
-    Для полной функциональности включите JavaScript.
-  </div>
+  <div class="noscript-banner">Для полной функциональности включите JavaScript.</div>
 </noscript>
 
 <header class="header">
@@ -42,7 +40,7 @@
       <a href="#download" class="nav__link">Скачать</a>
       <a href="#instructions" class="nav__link">Инструкция</a>
     </nav>
-    <button class="mobile-toggle" aria-label="Открыть меню" aria-controls="nav-menu" aria-expanded="false">
+    <button type="button" class="mobile-toggle" aria-label="Открыть меню" aria-controls="nav-menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </div>
@@ -199,7 +197,7 @@
           <div class="step__screenshot">
             <picture>
               <source srcset="assets/screenshots/step1.webp" type="image/webp">
-              <img src="assets/screenshots/step1.png" alt="Главный экран приложения Happ с кнопкой подключения" class="screenshot__img js-lightbox-trigger" loading="lazy" width="315" height="640">
+              <img src="assets/screenshots/step1.png" alt="Главный экран приложения Happ с кнопкой подключения" class="screenshot__img js-lightbox-trigger" loading="lazy" width="315" height="640" tabindex="0">
             </picture>
             </div>
           </div>
@@ -223,7 +221,7 @@
           <div class="step__screenshot">
             <picture>
               <source srcset="assets/screenshots/step2.webp" type="image/webp">
-              <img src="assets/screenshots/step2.png" alt="Экран настроек профиля с полем для ввода ключа подписки" class="screenshot__img js-lightbox-trigger" loading="lazy" width="315" height="640">
+              <img src="assets/screenshots/step2.png" alt="Экран настроек профиля с полем для ввода ключа подписки" class="screenshot__img js-lightbox-trigger" loading="lazy" width="315" height="640" tabindex="0">
             </picture>
             </div>
           </div>
@@ -251,7 +249,7 @@
           <div class="step__screenshot">
             <picture>
               <source srcset="assets/screenshots/step3.webp" type="image/webp">
-              <img src="assets/screenshots/step3.png" alt="Меню добавления подписки в приложении Happ" class="screenshot__img js-lightbox-trigger" loading="lazy" width="315" height="640">
+              <img src="assets/screenshots/step3.png" alt="Меню добавления подписки в приложении Happ" class="screenshot__img js-lightbox-trigger" loading="lazy" width="315" height="640" tabindex="0">
             </picture>
             </div>
           </div>
@@ -275,7 +273,7 @@
           <div class="step__screenshot">
             <picture>
               <source srcset="assets/screenshots/step4.webp" type="image/webp">
-              <img src="assets/screenshots/step4.png" alt="Экран успешного подключения к VPN со статусом Подключено" class="screenshot__img js-lightbox-trigger" loading="lazy" width="315" height="640">
+              <img src="assets/screenshots/step4.png" alt="Экран успешного подключения к VPN со статусом Подключено" class="screenshot__img js-lightbox-trigger" loading="lazy" width="315" height="640" tabindex="0">
             </picture>
             </div>
           </div>

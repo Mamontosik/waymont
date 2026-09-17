@@ -1,6 +1,8 @@
 (function () {
   'use strict';
 
+  document.documentElement.classList.remove('no-js');
+
   var toggle = document.querySelector('.mobile-toggle');
   var nav = document.querySelector('.nav');
   if (toggle && nav) {
@@ -44,12 +46,13 @@
       lb.setAttribute('aria-modal', 'true');
       lb.setAttribute('aria-label', alt || 'Увеличенный скриншот');
       lb.innerHTML =
-        '<button class="lightbox__close" aria-label="Закрыть">&times;</button>' +
-        '<img class="lightbox__img" src="' + src + '" alt="' + (alt || '') + '">';
+        '<button type="button" class="lightbox__close" aria-label="Закрыть">&times;</button>' +
+        '<img class="lightbox__img" src="' + src + '" alt="' + (alt || '') + '" tabindex="0">';
       document.body.appendChild(lb);
       document.body.style.overflow = 'hidden';
       requestAnimationFrame(function () {
         lb.classList.add('lightbox--open');
+        firstEl.focus();
       });
       lightboxEl = lb;
       lb._trigger = trigger;
@@ -57,7 +60,6 @@
       var focusable = lb.querySelectorAll('button, img');
       var firstEl = focusable[0];
       var lastEl = focusable[focusable.length - 1];
-      firstEl.focus();
 
       lb.addEventListener('keydown', function (e) {
         if (e.key === 'Tab') {
@@ -69,7 +71,6 @@
             firstEl.focus();
           }
         }
-        if (e.key === 'Escape') closeLightbox();
       });
 
       lb.addEventListener('click', function (e) {
@@ -102,6 +103,12 @@
     triggers.forEach(function (img) {
       img.addEventListener('click', function () {
         openLightbox(img.src, img.alt, img);
+      });
+      img.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openLightbox(img.src, img.alt, img);
+        }
       });
     });
   }
