@@ -1,4 +1,11 @@
 <!DOCTYPE html>
+<!--
+  WayMont — лендинг VPN-сервиса Happ (iOS, Android, macOS, Windows, Apple TV).
+  Одна страница: hero, «Почему WayMont», скачивание, инструкция по подключению, FAQ.
+  Базовые стили — css/style.css, стили секции «Инструкция» — css/instructions.css.
+  Скрипты — js/main.js (меню, появление блоков, лайтбокс) и js/instructions.js
+  (плавное раскрытие FAQ там, где браузер не умеет это чистым CSS).
+-->
 <html lang="ru" class="no-js">
 <head>
   <meta charset="UTF-8">
@@ -19,6 +26,7 @@
   }
   </script>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/instructions.css">
 </head>
 <body>
 
@@ -172,112 +180,200 @@
     </div>
   </section>
 
-  <section id="instructions" class="instructions section section--dark">
+  <section id="instructions" class="instructions section section--dark" aria-labelledby="instructions-title">
     <div class="container">
       <span class="section__num" aria-hidden="true">§03</span>
-      <h2 class="section__title">Инструкция по подключению</h2>
-      <p class="section__subtitle">Приложение Happ доступно для iOS и Android</p>
-      <div class="steps timeline">
-        <article class="step reveal">
+      <h2 class="section__title" id="instructions-title">Инструкция по подключению</h2>
+      <p class="section__subtitle">Четыре шага и около двух минут</p>
+
+      <ul class="instructions__meta reveal">
+        <li class="instructions__chip">≈ 2 минуты</li>
+        <li class="instructions__chip">iOS · Android · Десктоп · TV</li>
+        <li class="instructions__chip instructions__chip--accent">нужна ссылка подписки</li>
+      </ul>
+
+      <div class="instructions__lead reveal">
+        <h3 class="instructions__lead-title">Что понадобится</h3>
+        <ul class="instructions__req">
+          <li><strong>Устройство на iOS или Android.</strong> Инструкция ниже — для них.</li>
+          <li><strong>Приложение Happ - Proxy Utility.</strong> Ссылки — в разделе <a href="#download" class="step__link">«Скачать»</a>.</li>
+          <li><strong>Ссылка подписки.</strong> Адрес, начинающийся с <strong>https://</strong>, с настройками вашего сервера.</li>
+        </ul>
+        <p class="instructions__note">
+          «Ключ подписки», «ссылка подписки» и «адрес подписки» — это одно и то же.
+          Скриншоты сделаны на iOS: на Android пункты меню называются так же, отличается только оформление.
+          На компьютере, Apple TV и Android TV подписка добавляется тем же способом.
+        </p>
+      </div>
+
+      <ol class="steps timeline">
+        <li class="step reveal" id="step-1">
           <div class="step__marker" aria-hidden="true">1</div>
           <div class="step__card">
             <div class="step__body">
-            <img src="assets/icons/step1.png" alt="" class="step__icon" width="80" height="80">
+            <svg class="step__icon" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+              <rect x="15" y="5" width="18" height="38" rx="3" stroke="currentColor" stroke-width="2.5"/>
+              <path d="M24 16v11M19.5 22.5L24 27l4.5-4.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
             <div class="step__text">
               <h3 class="step__title">Установите приложение</h3>
               <div class="step__desc">
-                <p>Установите <strong>Happ — Proxy Utility</strong> на ваше устройство. Ссылки на скачивание — в блоке выше.</p>
+                <p>Установите <strong>Happ - Proxy Utility</strong> из магазина приложений вашей платформы.</p>
                 <ul class="step__list">
-                  <li><strong>iOS:</strong> Если приложение не находится, смените регион App Store на РФ или США.</li>
-                  <li><strong>Android:</strong> Google Play — <strong>Happ — Proxy Utility</strong>.</li>
+                  <li><strong>iOS:</strong> App Store → поиск «Happ - Proxy Utility» → «Загрузить».</li>
+                  <li><strong>Android:</strong> Google Play → поиск «Happ - Proxy Utility» → «Установить».</li>
                 </ul>
+                <p class="step__tip" data-label="Если не находится">Вернитесь к подсказке в разделе <a href="#download" class="step__link">«Скачать»</a> — там про смену региона App Store.</p>
+                <p class="step__see">После установки на рабочем столе появится иконка <strong>Happ</strong>.</p>
               </div>
             </div>
           </div>
-          <div class="step__screenshot">
+          <button type="button" class="shot js-lightbox-trigger">
             <picture>
               <source srcset="assets/screenshots/step1.webp" type="image/webp">
-              <img src="assets/screenshots/step1.png" alt="Главный экран приложения Happ с кнопкой подключения" class="screenshot__img js-lightbox-trigger" loading="lazy" width="315" height="640" tabindex="0">
+              <img src="assets/screenshots/step1.png" alt="Главный экран приложения Happ после установки" loading="lazy" width="315" height="640">
             </picture>
-            </div>
+            <span class="shot__zoom" aria-hidden="true">Увеличить</span>
+          </button>
+          <p class="screenshot__caption">Happ после установки</p>
           </div>
-        </article>
-        <article class="step reveal">
+        </li>
+
+        <li class="step reveal" id="step-2">
           <div class="step__marker" aria-hidden="true">2</div>
           <div class="step__card">
             <div class="step__body">
-            <img src="assets/icons/step2.png" alt="" class="step__icon" width="80" height="80">
+            <svg class="step__icon" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+              <path d="M20 26a10 10 0 0015.08 1.08l6-6a10 10 0 00-14.14-14.14l-3.44 3.42" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M28 22a10 10 0 00-15.08-1.08l-6 6a10 10 0 0014.14 14.14l3.42-3.42" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
             <div class="step__text">
-              <h3 class="step__title">Получите ключ подписки</h3>
+              <h3 class="step__title">Получите ссылку подписки</h3>
               <div class="step__desc">
-                <p>Свяжитесь с администратором WayMont — вам выдадут ссылку подписки (или QR-код).</p>
+                <p>Ссылка подписки — это адрес вида <strong>https://…</strong>, по которому Happ получает список ваших серверов. Приложение обновляет его само, поэтому вводить нужно один раз.</p>
                 <ul class="step__list">
-                  <li>Скопируйте ссылку в буфер обмена — она понадобится на следующем шаге</li>
-                  <li>Либо сохраните QR-код для сканирования</li>
+                  <li>Если ссылка уже есть — скопируйте её целиком, вместе с <strong>https://</strong>.</li>
+                  <li>Если ссылки нет — запросите её у администратора WayMont и дождитесь ответа, прежде чем идти к шагу 3.</li>
+                  <li>Или сохраните присланный QR-код — он понадобится на шаге 3.</li>
                 </ul>
+                <p class="step__tip" data-label="Важно">Ссылка выдаётся администратором WayMont после оформления доступа. Не пересылайте её третьим лицам.</p>
+                <p class="step__see">В буфере обмена лежит длинная строка, начинающаяся с <strong>https://</strong>.</p>
               </div>
             </div>
           </div>
-          <div class="step__screenshot">
+          <button type="button" class="shot js-lightbox-trigger">
             <picture>
               <source srcset="assets/screenshots/step2.webp" type="image/webp">
-              <img src="assets/screenshots/step2.png" alt="Экран настроек профиля с полем для ввода ключа подписки" class="screenshot__img js-lightbox-trigger" loading="lazy" width="315" height="640" tabindex="0">
+              <img src="assets/screenshots/step2.png" alt="Экран добавления подписки в Happ с полем для ссылки" loading="lazy" width="315" height="640">
             </picture>
-            </div>
+            <span class="shot__zoom" aria-hidden="true">Увеличить</span>
+          </button>
+          <p class="screenshot__caption">Добавление подписки</p>
           </div>
-        </article>
-        <article class="step reveal">
+        </li>
+
+        <li class="step reveal" id="step-3">
           <div class="step__marker" aria-hidden="true">3</div>
           <div class="step__card">
             <div class="step__body">
-            <img src="assets/icons/step3.png" alt="" class="step__icon" width="80" height="80">
+            <svg class="step__icon" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+              <path d="M8 14h18M8 24h18M8 34h10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M35 26v12M29 32h12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
             <div class="step__text">
               <h3 class="step__title">Добавьте подписку в Happ</h3>
               <div class="step__desc">
+                <p>Добавьте ссылку в приложение — Happ сам подтянет список серверов.</p>
                 <ul class="step__list">
-                  <li>На главном экране Happ нажмите кнопку <strong>«+»</strong></li>
-                  <li>Выберите способ добавления:
-                    <br><strong>«Импорт из буфера обмена»</strong> — ссылка определится автоматически
-                    <br><strong>«URL подписки»</strong> — вставьте ссылку вручную → «Готово»
-                    <br><strong>QR-код</strong> — отсканируйте камерой телефона
-                  </li>
-                  <li>Подписка появится в списке серверов</li>
+                  <li>На главном экране нажмите <strong>«+»</strong>.</li>
+                  <li>Выберите <strong>«Импорт из буфера обмена»</strong> — ссылка определится автоматически. <span class="step__tag">быстрее всего</span></li>
+                  <li>Либо отсканируйте QR-код, если он у вас есть.</li>
+                  <li>Либо выберите <strong>«Ручной ввод»</strong>, вставьте ссылку и нажмите <strong>«Готово»</strong>.</li>
+                  <li>Подписка появится в списке серверов.</li>
                 </ul>
+                <p class="step__tip" data-label="Если список пуст">Потяните экран вниз — Happ обновит подписку.</p>
+                <p class="step__see">В «Списке серверов» появилась ваша подписка с флагами стран.</p>
               </div>
             </div>
           </div>
-          <div class="step__screenshot">
+          <button type="button" class="shot js-lightbox-trigger">
             <picture>
               <source srcset="assets/screenshots/step3.webp" type="image/webp">
-              <img src="assets/screenshots/step3.png" alt="Меню добавления подписки в приложении Happ" class="screenshot__img js-lightbox-trigger" loading="lazy" width="315" height="640" tabindex="0">
+              <img src="assets/screenshots/step3.png" alt="Меню «+» в Happ со способами добавления подписки" loading="lazy" width="315" height="640">
             </picture>
-            </div>
+            <span class="shot__zoom" aria-hidden="true">Увеличить</span>
+          </button>
+          <p class="screenshot__caption">Способы добавления подписки</p>
           </div>
-        </article>
-        <article class="step reveal">
+        </li>
+
+        <li class="step reveal" id="step-4">
           <div class="step__marker" aria-hidden="true">4</div>
           <div class="step__card">
             <div class="step__body">
-            <img src="assets/icons/step4.png" alt="" class="step__icon" width="80" height="80">
+            <svg class="step__icon" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+              <path d="M24 8v13" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M15.2 14.8a13.5 13.5 0 1017.6 0" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
             <div class="step__text">
               <h3 class="step__title">Подключитесь</h3>
               <div class="step__desc">
+                <p>Выберите сервер и включите защиту.</p>
                 <ul class="step__list">
-                  <li>Выберите добавленный профиль</li>
-                  <li>Нажмите <strong>«Подключиться»</strong></li>
-                  <li>Статус «Подключено» — вы в безопасном интернете</li>
+                  <li>Выберите подписку и нажмите <strong>«Подключиться»</strong>.</li>
+                  <li>Если система спросит разрешение на VPN-подключение — нажмите <strong>«Разрешить»</strong>.</li>
+                  <li>Статус <strong>«Подключено»</strong> — трафик идёт через сервер WayMont.</li>
                 </ul>
+                <p class="step__tip" data-label="Совет">Остановить защиту можно там же — кнопкой «Отключиться».</p>
+                <p class="step__see">Кнопка подключения активна, статус — <strong>«Подключено»</strong>.</p>
               </div>
             </div>
           </div>
-          <div class="step__screenshot">
+          <button type="button" class="shot js-lightbox-trigger">
             <picture>
               <source srcset="assets/screenshots/step4.webp" type="image/webp">
-              <img src="assets/screenshots/step4.png" alt="Экран успешного подключения к VPN со статусом Подключено" class="screenshot__img js-lightbox-trigger" loading="lazy" width="315" height="640" tabindex="0">
+              <img src="assets/screenshots/step4.png" alt="Главный экран Happ со статусом «Подключено»" loading="lazy" width="315" height="640">
             </picture>
-            </div>
+            <span class="shot__zoom" aria-hidden="true">Увеличить</span>
+          </button>
+          <p class="screenshot__caption">Статус «Подключено»</p>
           </div>
-        </article>
+        </li>
+      </ol>
+
+      <div class="verify reveal">
+        <h3 class="verify__title">Проверка подключения</h3>
+        <p class="verify__lead">Три признака, что всё работает:</p>
+        <ul class="verify__list">
+          <li class="verify__item"><span class="verify__check" aria-hidden="true"></span><span>Статус <strong>«Подключено»</strong> на главном экране Happ</span></li>
+          <li class="verify__item"><span class="verify__check" aria-hidden="true"></span><span>Любой сайт открывается без задержек</span></li>
+          <li class="verify__item"><span class="verify__check" aria-hidden="true"></span><span>IP сменился — проверьте на <strong>2ip.ru</strong></span></li>
+        </ul>
+      </div>
+
+      <div class="faq reveal">
+        <h3 class="faq__title">Если что-то не работает</h3>
+        <details class="faq__item" name="faq">
+          <summary class="faq__q">Сайты не открываются, хотя статус «Подключено»<span class="faq__icon" aria-hidden="true"></span></summary>
+          <div class="faq__a"><p>Отключитесь и подключитесь снова. Если не помогло — откройте список подписок и потяните экран вниз, как в <a href="#step-3" class="step__link">шаге 3</a>.</p></div>
+        </details>
+        <details class="faq__item" name="faq">
+          <summary class="faq__q">Happ пишет, что подписка недоступна или истекла<span class="faq__icon" aria-hidden="true"></span></summary>
+          <div class="faq__a"><p>Ссылка перестала действовать. Запросите новую у администратора WayMont и добавьте её заново, как в <a href="#step-3" class="step__link">шаге 3</a>.</p></div>
+        </details>
+        <details class="faq__item" name="faq">
+          <summary class="faq__q">Система не спрашивает разрешение на VPN<span class="faq__icon" aria-hidden="true"></span></summary>
+          <div class="faq__a"><p>Проверьте системный профиль: на iOS — «Настройки» → «VPN и управление устройством», на Android — «Настройки» → «Подключения» → «VPN». Профиль Happ должен быть разрешён и включён.</p></div>
+        </details>
+        <details class="faq__item" name="faq">
+          <summary class="faq__q">Подключение не включается<span class="faq__icon" aria-hidden="true"></span></summary>
+          <div class="faq__a"><p>Проверьте: не запущено ли другое VPN-приложение (туннель один за раз), включены ли автоматические дата и время, актуальна ли версия Happ. Попробуйте другой сервер из списка.</p></div>
+        </details>
+        <details class="faq__item" name="faq">
+          <summary class="faq__q">Приложение не находится в App Store<span class="faq__icon" aria-hidden="true"></span></summary>
+          <div class="faq__a"><p>Смените регион App Store на РФ или США. Альтернатива — установить Happ на устройстве с Android.</p></div>
+        </details>
+        <p class="instructions__cta">Не помогло? Напишите администратору WayMont — он выдаёт ссылки подписки и помогает с настройкой.</p>
       </div>
     </div>
   </section>
@@ -294,5 +390,6 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script src="js/instructions.js"></script>
 </body>
 </html>

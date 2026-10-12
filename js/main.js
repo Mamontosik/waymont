@@ -44,22 +44,23 @@
       lb.className = 'lightbox';
       lb.setAttribute('role', 'dialog');
       lb.setAttribute('aria-modal', 'true');
-      lb.setAttribute('aria-label', alt || 'Увеличенный скриншот');
+      lb.setAttribute('aria-label', 'Увеличенный скриншот: ' + (alt || ''));
       lb.innerHTML =
         '<button type="button" class="lightbox__close" aria-label="Закрыть">&times;</button>' +
-        '<img class="lightbox__img" src="' + src + '" alt="' + (alt || '') + '" tabindex="0">';
+        '<img class="lightbox__img" src="' + src + '" alt="' + (alt || '') + '">';
       document.body.appendChild(lb);
       document.body.style.overflow = 'hidden';
+
+      var focusable = lb.querySelectorAll('button');
+      var firstEl = focusable[0];
+      var lastEl = focusable[focusable.length - 1];
+
       requestAnimationFrame(function () {
         lb.classList.add('lightbox--open');
-        firstEl.focus();
+        if (firstEl) firstEl.focus();
       });
       lightboxEl = lb;
       lb._trigger = trigger;
-
-      var focusable = lb.querySelectorAll('button, img');
-      var firstEl = focusable[0];
-      var lastEl = focusable[focusable.length - 1];
 
       lb.addEventListener('keydown', function (e) {
         if (e.key === 'Tab') {
@@ -100,16 +101,20 @@
       if (e.key === 'Escape') closeLightbox();
     }
 
-    triggers.forEach(function (img) {
-      img.addEventListener('click', function () {
-        openLightbox(img.src, img.alt, img);
-      });
-      img.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          openLightbox(img.src, img.alt, img);
-        }
-      });
+    triggers.forEach(function (el) {
+      var open = function () {
+        var img = el.matches('img') ? el : el.querySelector('img');
+        if (img) openLightbox(img.currentSrc || img.src, img.alt || '', el);
+      };
+      el.addEventListener('click', open);
+      if (!el.matches('button')) {
+        el.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            open();
+          }
+        });
+      }
     });
   }
 

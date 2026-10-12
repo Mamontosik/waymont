@@ -1,0 +1,437 @@
+/* ==========================================================================
+   WayMont — секция «Инструкция по подключению».
+   Базовые токены, переменные и общие правила — в css/style.css; здесь только
+   стили самой секции. Часть классов шага (.step__marker, .step__card,
+   .step__body, .step__title, .step__desc, .step__list) определена в style.css.
+   Плавное раскрытие FAQ: CSS ::details-content + JS-фоллбэк в js/instructions.js.
+   ========================================================================== */
+
+/* --- Мета-чипы под заголовком секции ------------------------------------- */
+.instructions__meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: -28px 0 48px;
+  padding-left: 0;
+  list-style: none;
+}
+.instructions__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border: 1px solid var(--border-dark);
+  background: rgba(255, 255, 255, 0.02);
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-gray);
+  white-space: nowrap;
+  transition: border-color var(--transition), color var(--transition);
+}
+.instructions__chip::before {
+  content: "";
+  flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  background: var(--color-red);
+}
+.instructions__chip--accent {
+  border-color: rgba(219, 0, 0, 0.45);
+  color: var(--text-on-dark);
+}
+.instructions__chip:hover {
+  border-color: var(--color-red);
+  color: var(--text-on-dark);
+}
+
+/* --- Панель «Что понадобится» -------------------------------------------- */
+.instructions__lead {
+  max-width: 620px;
+  margin: 0 auto 40px;
+  padding: 24px;
+  border: 1px solid var(--border-dark);
+  border-left: 4px solid var(--color-red);
+  background: rgba(255, 255, 255, 0.03);
+}
+.instructions__lead-title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-on-dark);
+  margin-bottom: 14px;
+}
+.instructions__req {
+  padding-left: 0;
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+.instructions__req li {
+  position: relative;
+  padding-left: 22px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--color-gray);
+}
+.instructions__req li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.5em;
+  width: 8px;
+  height: 8px;
+  background: var(--color-red);
+}
+.instructions__req strong { color: var(--text-on-dark); }
+.instructions__note {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--border-dark);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--color-gray);
+}
+.instructions__cta {
+  margin-top: 28px;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--color-gray);
+}
+
+/* --- Шаги: семантика <ol> + новые элементы внутри шага -------------------- */
+.steps {
+  padding-left: 0;
+  list-style: none;
+}
+.step {
+  scroll-margin-top: 88px; /* якоря из FAQ не уезжают под fixed-header (64px) */
+}
+
+/* Иконка шага — инлайн-SVG в том же стиле, что иконки блока «Почему WayMont» */
+.step__icon {
+  color: var(--color-white);
+}
+
+.step__tag {
+  display: inline-block;
+  margin-left: 8px;
+  vertical-align: 2px;
+  padding: 1px 8px;
+  border: 1px solid var(--color-red);
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-red);
+  white-space: nowrap;
+}
+.step__tip {
+  margin-top: 14px;
+  padding: 12px 16px;
+  border-left: 3px solid var(--color-red);
+  background: rgba(219, 0, 0, 0.08);
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: var(--color-gray);
+}
+.step__tip::before {
+  content: attr(data-label);
+  display: block;
+  margin-bottom: 4px;
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-red);
+}
+.step__tip strong { color: var(--text-on-dark); }
+
+/* Строка «Вы увидите». Была display:flex — из-за этого текст, <strong> и точка
+   становились отдельными flex-элементами и gap:10px вставлял лишние пробелы
+   (в т.ч. перед точкой). Теперь обычный блок с абсолютным маркером «✓». */
+.step__see {
+  position: relative;
+  margin-top: 16px;
+  padding: 14px 0 0 24px;
+  border-top: 1px dashed var(--border-dark);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--color-gray);
+  text-wrap: pretty; /* не оставляем одно слово на последней строке */
+}
+.step__see::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 14px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--color-red);
+}
+.step__see strong { color: var(--text-on-dark); }
+.step__link {
+  color: var(--color-red);
+  border-bottom: 1px solid rgba(219, 0, 0, 0.4);
+  transition: color var(--transition), border-color var(--transition);
+}
+.step__link:hover,
+.step__link:focus-visible {
+  color: var(--text-on-dark);
+  border-bottom-color: var(--text-on-dark);
+}
+.step__link:focus-visible {
+  outline: 2px solid var(--color-red);
+  outline-offset: 3px;
+}
+
+/* --- Скриншот как кнопка с видимым признаком «Увеличить» ------------------ */
+.shot {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: 340px;
+  margin: 20px auto 0;
+  padding: 12px;
+  background: var(--color-white);
+  border: 0;
+  border-radius: 0;
+  font: inherit;
+  color: inherit;
+  cursor: zoom-in;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.shot:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 38px rgba(0, 0, 0, 0.45);
+}
+.shot:focus-visible {
+  outline: 2px solid var(--color-red);
+  outline-offset: 3px;
+}
+.shot__zoom {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 6px 10px;
+  background: rgba(22, 24, 24, 0.78);
+  color: var(--color-white);
+  font-family: var(--font-display);
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity var(--transition), transform var(--transition);
+  pointer-events: none;
+}
+.shot:hover .shot__zoom,
+.shot:focus-visible .shot__zoom {
+  opacity: 1;
+  transform: none;
+}
+.screenshot__caption {
+  padding-top: 10px;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--color-gray-dark);
+}
+
+/* --- Проверка подключения ------------------------------------------------ */
+.verify {
+  max-width: 620px;
+  margin: 48px auto 0;
+  padding: 28px 24px;
+  border: 1px solid var(--border-dark);
+  background: rgba(255, 255, 255, 0.02);
+}
+.verify__title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-on-dark);
+  margin-bottom: 6px;
+}
+.verify__lead {
+  font-size: 0.85rem;
+  color: var(--color-gray);
+  margin-bottom: 20px;
+}
+.verify__list {
+  padding-left: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+.verify__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  min-width: 0;
+  padding-top: 14px;
+  border-top: 2px solid var(--color-red);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--color-gray);
+  overflow-wrap: break-word;
+}
+.verify__check {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-red);
+  color: var(--color-white);
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+.verify__check::before { content: "✓"; }
+.verify__item strong { color: var(--text-on-dark); }
+
+/* --- FAQ-аккордеон на <details>/<summary> -------------------------------- */
+.faq {
+  max-width: 620px;
+  margin: 40px auto 0;
+}
+.faq__title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--text-on-dark);
+  margin-bottom: 20px;
+}
+.faq__item {
+  border: 1px solid var(--border-dark);
+  background: rgba(255, 255, 255, 0.02);
+  transition: border-color var(--transition), background var(--transition);
+}
+.faq__item + .faq__item { margin-top: -1px; }
+.faq__item:hover { background: rgba(255, 255, 255, 0.04); }
+.faq__item[open] {
+  position: relative;
+  z-index: 1;
+  border-color: var(--color-red);
+}
+.faq__q {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 20px;
+  list-style: none;
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-on-dark);
+  transition: color var(--transition);
+}
+.faq__q::-webkit-details-marker { display: none; }
+.faq__q::marker { content: ""; }
+.faq__q:hover { color: var(--color-red); }
+.faq__q:focus-visible {
+  outline: 2px solid var(--color-red);
+  outline-offset: -2px;
+}
+.faq__icon {
+  position: relative;
+  flex-shrink: 0;
+  width: 14px;
+  height: 14px;
+}
+.faq__icon::before,
+.faq__icon::after {
+  content: "";
+  position: absolute;
+  background: var(--color-red);
+  transition: transform var(--transition);
+}
+.faq__icon::before { top: 6px; left: 0; width: 14px; height: 2px; }
+.faq__icon::after { top: 0; left: 6px; width: 2px; height: 14px; }
+.faq__item[open] .faq__icon::after { transform: scaleY(0); }
+.faq__a {
+  padding: 0 20px 18px;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--color-gray);
+}
+.faq__a p {
+  padding-top: 16px;
+  border-top: 1px dashed var(--border-dark);
+}
+.faq__a strong { color: var(--text-on-dark); }
+
+/* Плавное раскрытие FAQ средствами CSS.
+   grid-template-rows 0fr -> 1fr поддерживают Chrome 131+, Safari 18.4+, Firefox 143+.
+   interpolate-size для этого не нужен — в Safari и Firefox его нет вовсе, поэтому
+   прежний вариант на block-size: auto там не анимировал (вопрос раскрывался рывком).
+   Браузерам без ::details-content анимацию добавляет js/instructions.js. */
+@supports selector(::details-content) {
+  .faq__item::details-content {
+    display: grid;
+    /* именно minmax(0, …): запись «0fr» разворачивается в minmax(auto, 0fr),
+       и auto-минимум не даёт строке схлопнуться до нуля — закрытие замирает
+       на 16px и затем скачком падает. Явный 0 убирает этот «пол». */
+    grid-template-rows: minmax(0, 0fr);
+    overflow: hidden;
+    transition: grid-template-rows 0.3s ease,
+                content-visibility 0.3s allow-discrete;
+  }
+  .faq__item[open]::details-content { grid-template-rows: minmax(0, 1fr); }
+  .faq__a { min-height: 0; }
+}
+
+/* --- Тёмная тема ---------------------------------------------------------- */
+@media (prefers-color-scheme: dark) {
+  .shot { background: #1e1f1f; }
+}
+
+/* --- Мобильные ------------------------------------------------------------ */
+@media (max-width: 768px) {
+  .instructions__meta { margin: -20px 0 36px; }
+  .instructions__lead { padding: 20px 16px; margin-bottom: 32px; }
+  .shot { max-width: 100%; }
+  .shot__zoom { opacity: 1; transform: none; } /* на тач-экранах hover не срабатывает */
+  .verify { margin-top: 36px; padding: 20px 16px; }
+  .verify__list { grid-template-columns: 1fr; gap: 12px; }
+  .faq { margin-top: 32px; }
+  .faq__q { padding: 14px 16px; font-size: 0.85rem; }
+  .faq__a { padding: 0 16px 16px; }
+}
+
+/* --- Уменьшенная анимация -------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .shot:hover { transform: none; }
+  .shot__zoom { transform: none; }
+  .faq__icon::before,
+  .faq__icon::after { transition: none; }
+  .faq__item::details-content { transition: none; }
+}

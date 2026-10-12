@@ -469,25 +469,6 @@ img { display: block; max-width: 100%; }
   color: var(--color-gray);
 }
 
-/* Step screenshot */
-.step__screenshot {
-  margin: 20px auto 0;
-  max-width: 340px;
-  background: var(--color-white);
-  padding: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-}
-.step__screenshot .screenshot__img {
-  display: block;
-  width: 100%;
-  height: auto;
-  cursor: zoom-in;
-  transition: transform var(--transition);
-}
-.step__screenshot .screenshot__img:hover {
-  transform: translateY(-2px);
-}
-
 /* Lightbox */
 .lightbox {
   position: fixed;
@@ -539,6 +520,10 @@ img { display: block; max-width: 100%; }
 }
 .lightbox__close:hover {
   background: rgba(255, 255, 255, 0.3);
+}
+.lightbox__close:focus-visible {
+  outline: 2px solid var(--color-white);
+  outline-offset: 3px;
 }
 
 /* Footer */
@@ -619,8 +604,6 @@ img { display: block; max-width: 100%; }
     border-color: rgba(255, 255, 255, 0.15);
     color: var(--color-gray);
   }
-
-  .step__screenshot { background: #1e1f1f; }
 }
 
 /* Responsive */
@@ -667,7 +650,6 @@ img { display: block; max-width: 100%; }
   .step__body { flex-direction: column; align-items: center; text-align: center; }
   .step__icon { width: 64px; height: 64px; }
   .step__list { text-align: left; }
-  .step__screenshot { max-width: 100%; margin-left: 0; }
 
   .footer__inner { flex-direction: column; gap: 16px; text-align: center; }
 }
